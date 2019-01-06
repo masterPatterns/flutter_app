@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/src/LogoApp.dart';
+import 'package:flutter_app/src/LogoApp2.dart';
+import 'package:flutter_app/src/LogoApp3.dart';
+import 'package:flutter_app/src/LogoApp4.dart';
 import 'package:flutter_app/src/MyImagePage.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -100,6 +103,19 @@ Pavlova is a meringue-based dessert named after the Russian ballerina Anna Pavlo
         );
     }
 
+    Column buildButtonColumn(IconData icon, String label, String buttomLabel) {
+//        Color color = Theme.of(context).primaryColor;
+        return Column(
+//            mainAxisSize: MainAxisSize.min,
+//            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+                Icon(icon, color: Colors.green[500]),
+                Text(label),
+                Text(label),
+            ],
+        );
+    }
+
     // DefaultTextStyle.merge allows you to create a default text
     // style that is inherited by its child and all subsequent children.
     var iconList = DefaultTextStyle.merge(
@@ -109,48 +125,50 @@ Pavlova is a meringue-based dessert named after the Russian ballerina Anna Pavlo
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                    makeDialog(context, "PREP 버튼 클릭", "PREP 버튼을 클릭하였습니다.");
-                });
-              },
-              child: Column(
-                children: [
-                  Icon(Icons.kitchen, color: Colors.green[500]),
-                  Text('PREP:'),
-                  Text('25 min'),
-                ],
-              ),
-            ),
-
             InkWell(
               highlightColor: Colors.red,
               splashColor: Colors.red,
               onTap: () {
-                  makeDialog(context, "COOK 버튼 클릭", "COOK 버튼을 클릭하였습니다.");
+                  Navigator.of(context).push(
+                      new MaterialPageRoute(
+                          builder: (BuildContext context) {
+                              return LogoApp();
+                          },
+                      ),
+                  );
+//                  makeDialog(context, "PREP 버튼 클릭", "PREP 버튼을 클릭하였습니다.");
               },
-              child: Column(
-                children: [
-                  Icon(Icons.timer, color: Colors.green[500]),
-                  Text('COOK:'),
-                  Text('1 hr'),
-                ],
-              ),
+              child: buildButtonColumn(Icons.kitchen, 'PREP:', '25 min'),
             ),
-//            Column(
-//              children: [
-//                Icon(Icons.timer, color: Colors.green[500]),
-//                Text('COOK:'),
-//                Text('1 hr'),
-//              ],
-//            ),
-            Column(
-              children: [
-                Icon(Icons.restaurant, color: Colors.green[500]),
-                Text('FEEDS:'),
-                Text('4-6'),
-              ],
+            InkWell(
+              highlightColor: Colors.red,
+              splashColor: Colors.red,
+              onTap: () {
+                  Navigator.of(context).push(
+                      new MaterialPageRoute(
+                          builder: (BuildContext context) {
+                              return LogoApp2();
+                          },
+                      ),
+                  );
+//                  makeDialog(context, "COOK 버튼 클릭", "COOK 버튼을 클릭하였습니다.");
+              },
+              child: buildButtonColumn(Icons.timer, 'COOK:', '1 hr'),
+            ),
+            InkWell(
+              highlightColor: Colors.red,
+              splashColor: Colors.red,
+              onTap: () {
+                  Navigator.of(context).push(
+                      new MaterialPageRoute(
+                          builder: (BuildContext context) {
+                              return LogoApp3();
+                          },
+                      ),
+                  );
+//                  makeDialog(context, "FEEDS 버튼 클릭", "FEEDS 버튼을 클릭하였습니다.");
+              },
+              child: buildButtonColumn(Icons.restaurant, 'FEEDS:', '4-6'),
             ),
           ],
         ),
@@ -188,7 +206,7 @@ Pavlova is a meringue-based dessert named after the Russian ballerina Anna Pavlo
       Navigator.of(context).push(
         new MaterialPageRoute<void>(
           builder: (BuildContext context) {
-            return LogoApp();
+            return LogoApp4();
           },
         ),
       );
