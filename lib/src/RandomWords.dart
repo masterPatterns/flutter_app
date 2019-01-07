@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/src/HeroAnimation.dart';
 import 'package:flutter_app/src/MyHomePage.dart';
 import 'package:flutter_app/src/Product.dart';
 import 'package:flutter_app/src/ShoppingList.dart';
@@ -120,8 +121,28 @@ class RandomWordsState extends State<RandomWords> {
             },
             child: buildButtonColumn(Icons.call, 'CALL'),
           ),
-          buildButtonColumn(Icons.near_me, 'ROUTE'),
-          buildButtonColumn(Icons.share, 'SHARE'),
+          InkWell(
+            highlightColor: Colors.red,
+            splashColor: Colors.red,
+            onTap: () {
+              Navigator.of(context).push(
+                new MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return HeroAnimation();
+                  },
+                ),
+              );
+            },
+            child: buildButtonColumn(Icons.near_me, 'ROUTE'),
+          ),
+          InkWell(
+            highlightColor: Colors.red,
+            splashColor: Colors.red,
+            onTap: () {
+                makeDialog(context);
+            },
+            child: buildButtonColumn(Icons.share, 'SHARE'),
+          ),
         ],
       ),
     );

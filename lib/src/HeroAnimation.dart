@@ -4,7 +4,7 @@ import 'package:flutter_app/src/PhotoHero.dart';
 
 class HeroAnimation extends StatelessWidget {
     Widget build(BuildContext context) {
-        timeDilation = 10.0; // 1.0 means normal animation speed.
+        timeDilation = 2.5; // 1.0 means normal animation speed.
 
         return Scaffold(
             appBar: AppBar(
