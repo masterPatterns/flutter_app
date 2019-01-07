@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/src/HeroAnimation.dart';
 import 'package:flutter_app/src/MyHomePage.dart';
 import 'package:flutter_app/src/Product.dart';
+import 'package:flutter_app/src/RadialExpansionDemo.dart';
 import 'package:flutter_app/src/ShoppingList.dart';
 
 class RandomWords extends StatefulWidget {
@@ -117,7 +118,13 @@ class RandomWordsState extends State<RandomWords> {
             highlightColor: Colors.red,
             splashColor: Colors.red,
             onTap: () {
-                makeDialog(context);
+              Navigator.of(context).push(
+                new MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return HeroAnimation();
+                  },
+                ),
+              );
             },
             child: buildButtonColumn(Icons.call, 'CALL'),
           ),
@@ -128,7 +135,7 @@ class RandomWordsState extends State<RandomWords> {
               Navigator.of(context).push(
                 new MaterialPageRoute(
                   builder: (BuildContext context) {
-                    return HeroAnimation();
+                    return RadialExpansionDemo();
                   },
                 ),
               );
@@ -177,7 +184,8 @@ class RandomWordsState extends State<RandomWords> {
           textSection,
           GestureDetector(
             onTap: () {
-              print('MyButton was tapped!');
+              makeDialog(context);
+//              print('MyButton was tapped!');
             },
             child: Container(
               height: 36.0,
