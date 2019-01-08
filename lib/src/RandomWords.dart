@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/src/HeroAnimation.dart';
+import 'package:flutter_app/src/ImagesDemo.dart';
 import 'package:flutter_app/src/MyHomePage.dart';
 import 'package:flutter_app/src/Product.dart';
 import 'package:flutter_app/src/RadialExpansionDemo.dart';
@@ -192,7 +193,14 @@ class RandomWordsState extends State<RandomWords> {
           textSection,
           GestureDetector(
             onTap: () {
-              makeDialog(context);
+              Navigator.of(context).push(
+                new MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return ImagesDemo();
+                  },
+                ),
+              );
+//              makeDialog(context);
 //              print('MyButton was tapped!');
             },
             child: Container(
