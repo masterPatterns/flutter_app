@@ -4,6 +4,7 @@ import 'package:flutter_app/src/MyHomePage.dart';
 import 'package:flutter_app/src/Product.dart';
 import 'package:flutter_app/src/RadialExpansionDemo.dart';
 import 'package:flutter_app/src/ShoppingList.dart';
+import 'package:flutter_app/src/StaggerDemo.dart';
 
 class RandomWords extends StatefulWidget {
   @override
@@ -146,7 +147,14 @@ class RandomWordsState extends State<RandomWords> {
             highlightColor: Colors.red,
             splashColor: Colors.red,
             onTap: () {
-                makeDialog(context);
+              Navigator.of(context).push(
+                new MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return StaggerDemo();
+                  },
+                ),
+              );
+//                makeDialog(context);
             },
             child: buildButtonColumn(Icons.share, 'SHARE'),
           ),
